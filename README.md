@@ -51,6 +51,14 @@ https://bahar-s-portfolio.vercel.app/
 🔗 Netlify:
 https://baharsportfolio.netlify.app/
 
+> 📝 **Note on Deployment Platforms**  
+> During testing, the Vercel deployment occasionally experienced access issues on certain mobile networks (e.g. cellular data), while remaining accessible over Wi-Fi.  
+> This can be related to infrastructure-level factors such as CDN routing, ISP-level filtering, or DNS resolution differences between mobile carriers and fixed networks.  
+>  
+> To ensure consistent accessibility, the project is also deployed on Netlify.  
+> If the Vercel link is not reachable in your network environment, the Netlify version can be used as a reliable alternative.
+
+
 ---
 
 ## 📄 License
