@@ -26,6 +26,8 @@ A clean and modern personal portfolio website showcasing my projects, skills, an
 
 ## 📁 Project Structure
 
+```text
+
 my-portfolio
 ├── index.html # Main HTML entry
 ├── package.json # Dependencies and scripts
@@ -38,11 +40,35 @@ my-portfolio
 ├── App.jsx # Root React component
 └── main.jsx # Application entry point
 
+```
 ---
 
 🌐 Live Demo
 
-🔗 Portfolio Website: vercel domain: https://bahar-s-portfolio.vercel.app/
-                       netlify domain: https://baharsportfolio.netlify.app/
+🔗 Vercel:
+https://bahar-s-portfolio.vercel.app/
+
+🔗 Netlify:
+https://baharsportfolio.netlify.app/
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👤 Author
+
+Bahar Sarımehmetoğlu  
+
+---
+
+## 🚀 Future Improvements
+
+- Additional animations
+- Blog / articles section
+- Performance optimizations
 
 ---
