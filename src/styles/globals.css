@@ -1,0 +1,1163 @@
+/* ------------------------------
+   Genel reset ve temel ayarlar
+   ------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+}
+/* LIGHT MODE: body arka planı */
+body.theme-light {
+  background: radial-gradient(
+    circle at top,
+    #e9f1ff 0%,
+    #dbeafe 40%,
+    #c7d2fe 100%
+  );
+}
+
+/* DARK MODE: body arka planı */
+body.theme-dark {
+  background: radial-gradient(
+    circle at top,
+    #1f2937 0,
+    #020617 55%,
+    #000 100%
+  );
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans 3", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  /* LIGHT MODE dış arka plan */
+  background: radial-gradient(
+    circle at top,
+    #e9f1ff 0%,
+    #dbeafe 40%,
+    #c7d2fe 100%
+  );
+}
+
+
+
+/* Sayfa ana container'ı, tema değişkenleri burada override edilecek */
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px 20px 40px;
+  min-height: 100vh;
+
+  /* Varsayılan (light) için güvenli değerler, aşağıda theme-light ile tekrar ayarlanıyor */
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.18);
+  --text: #0f172a;
+  --text-muted: #6b7280;
+  --border-subtle: #e5e7eb;
+}
+
+/* ------------------------------
+   LIGHT MODE 
+   ------------------------------ */
+.page.theme-light {
+  color: var(--text);
+  background: radial-gradient(circle at top, #f5f7fb 0, #e5e7eb 45%, #d1d5db 100%);
+}
+
+/* ------------------------------
+   DARK MODE 
+   ------------------------------ */
+.page.theme-dark {
+  --accent: #38bdf8;
+  --accent-soft: rgba(56, 189, 248, 0.22);
+  --text: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-subtle: #1f2937;
+
+  color: var(--text);
+  background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
+}
+
+
+/* ------------------------------
+   HERO (isim + fotoğraf + tema butonu)
+   ------------------------------ */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  padding: 24px 55px 24px;
+  margin-bottom: 10px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* Light mode için hero arka planı */
+.theme-light .hero {
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #f3f4f6,
+    rgba(209, 213, 219, 0.8)
+  );
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+/* Dark mode için hero arka planı */
+.theme-dark .hero {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.95),
+    rgba(15, 23, 42, 0.98),
+    rgba(8, 47, 73, 0.95)
+  );
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.hero__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.hero__title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hero__name {
+  margin: 0;
+  font-size: clamp(1.9rem, 3vw, 2.3rem);
+  letter-spacing: 0.04em;
+  margin-left: 12px;
+}
+
+.hero__role {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-left: 15px;
+}
+
+/* Tema butonu */
+.hero__theme-toggle {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: #111827;
+  transition: background 0.25s ease, box-shadow 0.25s ease,
+    transform 0.25s ease, border-color 0.25s ease;
+}
+
+/* Dark modda buton rengi */
+.theme-dark .hero__theme-toggle {
+  background: rgba(15, 23, 42, 0.96);
+  color: var(--text);
+}
+
+.hero__theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: 0 0 16px var(--accent-soft);
+}
+
+.hero__theme-icon {
+  font-size: 1.1rem;
+}
+
+.hero__theme-label {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.hero__photo-wrapper {
+  justify-self: end;
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  margin-right: 20px;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 0 0, var(--accent), #a855f7);
+}
+.hero__photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  object-fit: cover;
+  object-position: center -1px; /*fotoğrafı aşağı iter */
+}
+
+
+.hero__location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2.5px;
+  color: #8caaec;
+  font-weight: 500;
+  letter-spacing: .5px;
+  font-size: 0.87rem; /* yazı boyutu burada */
+}
+
+.hero__location-icon {
+  font-size: 14px;
+  margin-left: 23px;
+}
+
+
+/* ------------------------------
+   İçerik alanı
+   ------------------------------ */
+.page__content {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* İçerik alanı: ana grid (sol liste + sağ panel) */
+.page__split {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Soldaki kart listesi */
+.page__list {
+  width: 280px;           /* sabit görünüm için */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Responsive: dar ekranda alt alta  */
+@media (max-width: 900px) {
+  .page__split {
+    flex-direction: column;
+  }
+
+  .page__list {
+    width: 100%;
+  }
+}
+
+
+/* Soldaki kompakt bölüm kartları */
+.section-card {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  padding: 10px 14px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 23, 42, 0.95);
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease,
+    transform 0.2s ease, background 0.25s ease;
+}
+
+/* Light mode için arka plan */
+.theme-light .section-card {
+  background: #ffffff;
+}
+
+/* Hover, ikon büyüsün, kart parlasın */
+.section-card:hover,
+.section-card--active {
+  border-color: var(--accent);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Icon kısmı */
+.section-card__icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: rgba(15, 23, 42, 0.95);
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-light .section-card__icon-wrapper {
+  background: #f3f4f6;
+}
+
+.section-card:hover .section-card__icon-wrapper,
+.section-card--active .section-card__icon-wrapper {
+  transform: scale(1.06);
+  background: radial-gradient(circle at 30% 0, var(--accent), #0f172a);
+  box-shadow: 0 0 14px var(--accent-soft);
+  border-color: var(--accent);
+
+}
+
+/* Light mode — aktif / hover ikon rengi açık mavi olsun */
+.theme-light .section-card:hover .section-card__icon-wrapper,
+.theme-light .section-card--active .section-card__icon-wrapper {
+  background: radial-gradient(circle at 30% 0, #e0f2ff, #a5d8ff);
+
+  border-color: #60a5fa; /* daha yumuşak mavi çerçeve */
+  box-shadow: 0 0 10px rgba(147, 197, 253, 0.8);
+}
+
+
+
+.section-card__icon {
+  font-size: 1.2rem;
+}
+
+.section-card__title {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.detail-panel__item-heading {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.detail-panel__item-period {
+  font-size: 0.82rem;
+  letter-spacing: 0.2px;
+}
+
+/* Başlık tipografisi */
+h1,
+h2,
+h3,
+.section-card__title,
+.detail-panel__title {
+  font-family: "Inter", "Source Sans 3", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+
+
+
+.theme-light .section-card__title {
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.section-card--compact {
+  padding: 10px 16px;
+  gap: 12px;
+}
+
+.section-card__title {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* İçerik metni */
+.detail-panel__item-description,
+.detail-panel__subtitle {
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-weight: 400;
+}
+
+.section-card {
+  gap: 12px;
+}
+
+section-card__title {
+  white-space: nowrap;
+  font-size: 0.5rem;      /* tüm temalarda aynı */
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+.section-card__title {
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  /* Her iki modda da tek satır göster,
+     ama asla ... ile kesme */
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+/* ------------------------------
+   Links and More
+   ------------------------------ */
+.links-section {
+  margin-top: 16px;
+  padding: 14px 18px 16px;
+  border-radius: 18px;
+  border: 1px solid var(--border-subtle);
+}
+
+/* Light + Dark için arka plan */
+.theme-light .links-section {
+  background: #ffffff;
+}
+.theme-dark .links-section {
+  background: radial-gradient(circle at top, #020617, #020617 60%, #000 100%);
+}
+
+.links-section__title {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+.links-section__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Tek link rozeti: hover'da sadece glow ve hafif büyüme */
+.link-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease, background 0.25s ease;
+}
+
+.theme-light .link-badge {
+  background: #f9fafb;
+  color: #111827;
+}
+
+.theme-dark .link-badge {
+  background: rgba(15, 23, 42, 0.95);
+  color: var(--text);
+}
+
+.link-badge__icon {
+  font-size: 1.1rem;
+}
+
+.link-badge:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: 0 0 18px var(--accent-soft);
+  background: radial-gradient(circle at top, #eff6ff, #dbeafe);
+}
+
+.theme-dark .link-badge:hover {
+  background: radial-gradient(circle at top, #0f172a, #020617);
+}
+
+/* Sağdaki detay panel */
+.detail-panel {
+  flex: 1;
+  border-radius: 20px;
+  padding: 18px 20px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.35);
+  overflow: hidden;
+}
+
+/* Light / dark arka planları */
+.theme-light .detail-panel {
+  background: radial-gradient(circle at top, #ffffff, #e5edff);
+}
+
+.theme-dark .detail-panel {
+  background: radial-gradient(circle at top left, #020617, #0b1120 55%);
+}
+
+/* 
+  Theme toggle button — ekranın sağ üstüne sabit konum
+  Mevcut stil korunur, sadece pozisyon override edilir
+*/
+/* Küçük & kompakt floating theme button */
+.hero__theme-toggle--floating {
+  position: fixed;
+  top: 18px;
+  right: 17px;
+  z-index: 1100;
+
+  /* Boyut küçültme */
+  padding: 6px 10px;
+  border-radius: 24px;
+
+  /* Yazı ve ikon birlikte küçülsün */
+  font-size: 0.80rem;
+  gap: 6px;
+
+  /* Daha hafif görünüm */
+  backdrop-filter: blur(6px);
+}
+
+
+.hero__theme-icon {
+  width: 13px;
+  height: 13px;
+}
+
+.hero__theme-label {
+  font-size: 0.70rem; /* daha küçük yazı */
+  font-weight: 500;   /* okunaklı dursun */
+}
+
+/* İçerik: hafif slide + fade animasyonu */
+.detail-panel__content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: detail-enter 0.25s ease-out;
+}
+
+/* Animasyon:  */
+/* Giriş animasyonu: ikon uzaktan büyüyerek gelir */
+@keyframes detail-icon-enter {
+  0% {
+    opacity: 0;
+    transform: translateX(-6px) translateZ(-40px) scale(0.6);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(2px) translateZ(12px) scale(1.15);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateZ(0) scale(1);
+  }
+}
+
+/* Küçük zıplama animasyonu */
+@keyframes section-icon-bounce {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-6px); /* yukarı ufak sıçrama */
+  }
+  60% {
+    transform: translateY(3px);  /* hafif aşağı salınım */
+  }
+  100% {
+    transform: translateY(0);    /* yerine geri otur */
+  }
+}
+
+/* İkonun temel hali */
+.section-card__icon {
+  will-change: transform;
+}
+
+/* Kart aktif olduğunda ikon 1 kere zıplar */
+.section-card--active .section-card__icon {
+  animation: section-icon-bounce 0.35s ease-out;
+}
+
+
+
+/* Detay panelinin içeriği sağdan kayarak ve fade-in ile gelsin önemli!! */
+@keyframes detail-panel-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+ 
+.detail-icon {
+  display: inline-flex;
+  animation: detail-icon-enter .45s cubic-bezier(.25,.8,.4,1) both;
+  transform-style: preserve-3d;
+}
+
+.detail-icon--exit {
+  animation: detail-icon-exit .35s cubic-bezier(.4,.0,.2,1) forwards;
+}
+
+
+
+
+
+
+/* SectionCard içindeki ikonların temel hali */
+.section-card__icon {
+  transform-origin: center center;  /* yukarı kalkma efekti olmasın */
+  will-change: transform, opacity;
+}
+
+/* Animasyonu asıl başlatan class BU */
+.section-card__icon--to-panel {
+  animation: icon-to-panel-straight 0.65s ease-out forwards;
+}
+
+/* Büyürken taşarsa kesilmesin */
+.section-card__icon-wrapper {
+  overflow: visible;
+}
+
+
+/* Büyürken panel tarafına taşsa bile kesilmesin */
+.section-card__icon-wrapper {
+  overflow: visible;
+}
+
+
+
+.section-card__icon {
+  transform-origin: center center;   /* yukarı-aşağı hissi oluşmamaı için*/
+  will-change: transform, opacity;
+}
+
+.section-card__icon--to-panel {
+  animation: icon-to-panel-straight 0.65s ease-out forwards;
+}
+
+.section-card__icon-wrapper {
+  overflow: visible;
+}
+
+
+/* İkonun temel hali */
+.section-card__icon {
+  transition: transform 0.2s ease-out;
+  transform-origin: center center;    /* ortasından dönsün ve büyüsün */
+  will-change: transform, opacity;
+}
+
+
+
+/* İkonun temel hali */
+.section-card__icon {
+  transition: transform 0.2s ease-out;
+  transform-origin: center center; /* ortasından dönüp büyüsün */
+  will-change: transform, opacity;
+}
+
+
+
+/* Taşma olursa kesilmesin diye (büyürken) */
+.section-card__icon-wrapper {
+  overflow: visible;
+}
+
+
+
+
+/* Büyük ikon panel yönüne taşarken kesilmesin diye */
+.section-card__icon-wrapper {
+  overflow: visible;
+}
+
+
+
+
+
+.detail-panel__content--enter {
+  animation: detail-panel-slide-in 0.45s cubic-bezier(.2,.8,.3,1) forwards;
+  will-change: transform, opacity;
+}
+
+
+.detail-panel {
+  will-change: transform, opacity;
+}
+
+/* Panel görünür olurken animasyon oynasın */
+.detail-panel--enter {
+  animation: detail-panel-slide-in 0.5s cubic-bezier(.2,.8,.3,1) forwards;
+}
+
+
+/* Header */
+.detail-panel__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.detail-panel__icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: rgba(15, 23, 42, 0.98);
+
+}
+
+.theme-light .detail-panel__icon-wrapper {
+  background: #eff6ff;
+}
+
+.detail-panel__icon {
+  font-size: 1.3rem;
+}
+
+.detail-panel__title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.detail-panel__subtitle {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Gövde: içerik bu alanda scroll eder */
+.detail-panel__body {
+  margin-top: 6px;
+  padding-right: 6px;
+  max-height: none;   /* sınırı kaldır */
+  overflow-y: visible; /* scroll kapandı */
+}
+
+.detail-panel__item {
+  padding: 6px 0;
+}
+
+.detail-panel__item-heading {
+  margin: 0 0 2px;
+  font-size: 0.94rem;
+}
+
+.detail-panel__item-period {
+  margin: 0 0 2px;
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.detail-panel__item-description {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: pre-wrap;
+}
+
+
+/* ------------------------------
+   Contact bar
+   ------------------------------ */
+/* CONTACT bölümünün tamamı */
+.contact-bar {
+  margin-top: 40px;                       /* üstten sayfayla boşluk */
+  padding-top: 22px;                      /* çizgi ile içerik arasında boşluk */
+  border-top: 1px solid rgba(148, 163, 184, 0.5); /* üstte ayırıcı çizgi */
+  position: relative;                     /* başlığı absolute konumlandırmak için referans */
+}
+
+.contact-bar__title {
+  position: absolute;   /* normal akıştan çıkarıyoruz */
+  top: 3px;           /* çizginin biraz üstüne kaydır */
+  left: 0;              /* soldan hizala */
+  margin: 0;            /* default marginleri kaldır */
+  padding: 4px 12px;    /* etiketin içindeki boşluk */
+  border-radius: 999px; /* yuvarlak köşeli etiket görünümü */
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Mail satırı – başlığın altında hizalı dursun */
+.contact-bar__email {
+  margin-top: 18px;                  /* başlıktan sonra boşluk */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+/* Light mode mail badge */
+.theme-light .contact-bar__email {
+  background: #ffffff;
+  color: #111827;
+}
+
+/* Dark mode mail badge */
+.theme-dark .contact-bar__email {
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+}
+
+.contact-bar__email:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 0 16px var(--accent-soft);
+}
+
+/* Mail ikonu */
+.contact-bar__icon {
+  font-size: 1rem;
+}
+
+
+/* Header'ın hemen altında, yumuşak geçişli ikiye bölünen alan */
+.intro-split {
+  margin-top: 20px;
+  border-radius: 24px;
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 24px;
+
+  /* Keskin çizgi yerine ton geçişi */
+  background: linear-gradient(
+    90deg,
+    rgba(248, 250, 252, 0.96) 0%,
+    rgba(248, 250, 252, 0.96) 45%,
+    rgba(226, 232, 240, 0.98) 55%,
+    rgba(226, 232, 240, 0.98) 100%
+  );
+
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.16);
+}
+
+
+
+
+/* ------------------------------
+   Responsive
+   ------------------------------ */
+@media (max-width: 768px) {
+  .page {
+    padding: 20px 14px 28px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero__left {
+    align-items: center;
+  }
+
+  .hero__theme-toggle {
+    align-self: center;
+  }
+
+  .hero__photo-wrapper {
+    justify-self: center;
+  }
+
+  .section-card {
+    padding: 14px 14px 12px;
+  }
+}
+
+
+.about-two-col {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr);
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.about-two-col__left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-two-col__right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+/* Oval / yuvarlatılmış dikdörtgen foto */
+.about-two-col__photo {
+  width: 250px;
+  height: 250px;
+  border-radius: 22px;       /* köşeler oval */
+  object-fit: cover;
+  object-position: center 0px;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.18);
+  border: 2px solid rgba(148, 163, 184, 0.4);
+  margin-right: 60px;
+  margin-top: 10px;
+}
+about-two-col__photo {
+  transform: scale(1.8);   /* 1.00 = normal, 1.10 = %10 zoom */
+  object-fit: cover;
+}
+
+
+
+/* Mobilde alt alta gelsin */
+@media (max-width: 768px) {
+  .about-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .about-two-col__right {
+    justify-content: center;
+    margin-top: 12px;
+  }
+}
+
+
+/* Deneyim kartı genel satır */
+.experience-row {
+  margin-bottom: 10px;
+}
+
+/* Başlık + butonları aynı satıra alan container */
+.experience-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Rol + şirketin kendi içindeki dikey düzeni */
+.experience-header__titles {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Buton grubu: başlıkların sağında, küçük ve şık rozetler */
+.experience-header__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-right: 190px;
+}
+
+/* Rozet buton stili (Links & More'a benzer ama daha küçük) */
+.exp-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 500;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease,
+    background 0.2s ease;
+  white-space: nowrap;
+}
+
+.theme-light .exp-link-btn {
+  background: #f9fafb;
+  color: #111827;
+}
+
+.theme-dark .exp-link-btn {
+  background: rgba(15, 23, 42, 0.95);
+  color: #e5e7eb;
+}
+
+.exp-link-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent-soft);
+  background: radial-gradient(circle at top, #eff6ff, #dbeafe);
+}
+
+.theme-dark .exp-link-btn:hover {
+  background: radial-gradient(circle at top, #0f172a, #020617);
+}
+
+/* Sadece Experience sekmesinde iç scroll için */
+.detail-panel__body--scroll {
+  max-height: 420px;     
+  overflow-y: auto;
+  padding-right: 8px;    /* scrollbar içerik üstüne binmesin diye ufak boşluk */
+}
+
+/* İstersen scrollbar'ı inceltebilirsin (Chrome/Edge) */
+.detail-panel__body--scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.detail-panel__body--scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.detail-panel__body--scroll::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 999px;
+}
+
+/*logolar için stil*/
+.company-logo {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid rgba(148,163,184,.6);
+}
+.company-logo {
+  margin-right: 4px;
+}
+
+.internship-logo {
+  margin-left: 6px;
+}
+
+.education-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 999px;   /* tam yuvarlak */
+  object-fit: cover;
+  margin-left: 10px;
+  border: 2px solid rgba(148,163,184,.7);
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+}
+
+/* Education satırı için özel hizalama */
+.education-links-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;  /* logonun alta kaymasını engeller */
+}
+
+/*skill bar stilleri*/  
+.skill-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 6px 0;
+  /* Eskiden 570px idi, iki kolon olunca her şeyi sağa itiyor */
+  margin-right: 0;
+  max-width: 260px; /* istersen 240–280 arası oynayabilirsin */
+}
+
+
+.skill-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.skill-bar {
+  width: 85px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.35);
+  overflow: hidden;
+  margin-left: 12px;
+}
+
+.skill-bar__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.skills-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr; 
+  column-gap: 10px; 
+}
+
+.skills-column {
+  flex: 1;
+}
+
+/* language bar stilleri*/
+.languages-column {
+  flex: 0.7;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 0; 
+}
+
+.language-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  
+}
+
+.language-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(148,163,184,.45);
+}
+
+.dot--filled {
+  background: var(--accent);
+}
+
+/*mobilde alt alta gelsin*/
+@media (max-width: 900px) {
+  .skills-layout {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+/*Panel genişliğine göre otomatik 2–3 sütuna bölünür*/
+.cert-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 6px 18px;   /* satır ve kolon aralığı */
+}
+
+/*sertifika link stili*/  
+.cert-link {
+  display: block;              /* grid hücresini tamamen kaplasın */
+  text-decoration: none;       /* altı çizili olmasın */
+}
+
+.cert-link:hover {
+  color: var(--accent);
+  text-shadow: 0 0 6px var(--accent-soft);
+}
+
