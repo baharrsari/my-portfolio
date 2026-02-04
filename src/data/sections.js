@@ -221,7 +221,7 @@ export const aboutPanel = {
       heading: "",
       period: "",
       description:
-        "Hi!👋 I'm a Computer Engineering graduate from TED University. 💻\n\nPassionate about software development and cybersecurity. 🔒\n\nI had the opportunity to gain practical experience through\ninternships and part-time roles for enhancing my knowledge\nin programming, cybersecurity, and cloud technologies. 🚀\n\nI am eager to contribute to innovative projects and continue\nlearning in the tech field, especially interested in software\ndevelopment & cybersecurity. 📚\n\nI also like travelling, being physically active and reading. ✈️🏃‍♂️📖",
+        "Hi!👋 I'm a Computer Engineering graduate from TED University and currently\npursuing a Master's degree in Computer Engineering at Ankara University. 💻\n\nPassionate about software development and cybersecurity. 🔒\n\nI had the opportunity to gain practical experience through\ninternships and part-time roles for enhancing my knowledge\nin programming, cybersecurity, and cloud technologies. 🚀\n\nI am eager to contribute to innovative projects and continue\nlearning in the tech field, especially interested in software\ndevelopment & cybersecurity. 📚\n\nI also like travelling, being physically active and reading. ✈️🏃‍♂️📖",
     },
   ],
 };
