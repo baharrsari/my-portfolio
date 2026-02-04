@@ -88,6 +88,18 @@ export const sections = [
     title: "Education",
     Icon: FaUserGraduate,
     items: [
+      
+      {
+        company: "Ankara University",
+      role: "Master of Science in Computer Engineering",
+      type: "",
+      period: "2026 – Present · Ankara, Türkiye",
+      description: "",
+      companyUrl: "https://www.ankara.edu.tr/",
+      linkedinUrl:
+        "https://www.linkedin.com/school/ankara-university/posts/?feedView=all",
+      logo: "anku",
+      },
       {
         company: "TED University 🎓",
         role: "Bachelor of Science in Computer Engineering",
@@ -98,17 +110,6 @@ export const sections = [
         linkedinUrl:
           "https://www.linkedin.com/school/ted-university/posts/?feedView=all",
         logo: "tedu",
-      },
-      {
-        company: "ANKU Private High School",
-      role: "High School Diploma ",
-      type: "",
-      period: "2017 – 2021 · Ankara, Türkiye",
-      description: "",
-      companyUrl: "https://ankugvo.k12.tr/lise/",
-      linkedinUrl:
-        "https://www.linkedin.com/company/ankuokullari/posts/?feedView=all",
-      logo: "anku",
       },
     ],
   },
@@ -190,7 +191,7 @@ export const sections = [
     Icon: FaCertificate,
     items: [
 
-        { heading: "Introduction to Cloud Native Computing",  }, { heading: "Introduction to Machine Learning", url:"https://www.coursera.org/account/accomplishments/specialization/5JM5X2MCNCX8" },
+        { heading: "Introduction to Cloud Native Computing", url:"https://certification.mirantis.com/e854aace-8f84-4f35-8018-c4014411cc64#acc.K3vtVEi4"  }, { heading: "Introduction to Machine Learning", url:"https://www.coursera.org/account/accomplishments/specialization/5JM5X2MCNCX8" },
         
         { heading: "Introduction to Deep Learning & Neural Networks", url:"https://www.coursera.org/account/accomplishments/verify/GAKGQDJ7K6RS" }, { heading: "Exploratory Data Analysis for Machine Learning", url:"https://www.coursera.org/account/accomplishments/verify/2M3QTR49LBQV" },
         
