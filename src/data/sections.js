@@ -201,7 +201,7 @@ export const sections = [
         
         { heading: "Software Engineering: Implementation and Testing", url:"https://www.coursera.org/account/accomplishments/verify/YRU7NZTLGQ6X" }, { heading: "Supervised Machine Learning: Classification", url:"https://www.coursera.org/account/accomplishments/verify/MAARJPW62Y9H" },
         
-        { heading: "Software Engineering: Software Design and Project Management", url:"https://www.coursera.org/account/accomplishments/verify/33RKNYNFDD2T" },
+        { heading: "Software Engineering: Software Design and Project Management", url:"https://www.coursera.org/account/accomplishments/verify/33RKNYNFDD2T" }, { heading: "CISCO Networking Basics", url:"https://www.credly.com/badges/b31d3311-ef93-44d9-988f-cdd8e97467a6/public_url" },
         
         
       
